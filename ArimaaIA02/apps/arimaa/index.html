@@ -1,0 +1,194 @@
+  <!doctype html>
+
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml'> 
+<head>
+	<meta charset='utf-8' />
+
+	<script type="text/Javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquerytree/jquery.hotkeys.js"></script> 
+	<script type="text/javascript" src="js/jquerytree/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/jquerytree/jquery.jstree.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo.js"></script>
+	<script type="text/Javascript" src="js/prettyprint.js"></script>
+	<script type="text/Javascript" src="js/generic.js"></script>
+	<script type="text/Javascript" src="js/node_utils.js"></script>  
+	<script type="text/Javascript" src="js/domutils.js"></script>
+	<script type="text/Javascript" src="js/arimaa.js"></script>
+	<script type="text/Javascript" src="js/board.js"></script>
+	<script type="text/Javascript" src="js/sounds.js"></script>
+	<script type="text/Javascript" src="js/gametree.js"></script>
+	<script type="text/Javascript" src="js/gametree_utils.js"></script>
+	<script type="text/Javascript" src="js/viewer.js"></script>
+	<script type="text/Javascript" src="js/translator.js"></script>
+	<script type="text/Javascript" src="js/import.js"></script>
+	<script type="text/Javascript" src="js/example_game.js"></script>
+	<script type="text/Javascript" src="js/domgame.js"></script>
+	<script type="text/Javascript" src="js/domtree.js"></script>
+	<script type="text/Javascript" src="js/markings.js"></script>
+
+	<script src="/vendor/jquery/jquery-2.0.3.min.js"></script>
+
+    <script type="text/Javascript" src="js/selection.js"></script>
+	<script type="text/Javascript" src="js/bot.js"></script>
+	<script type="text/Javascript" src="js/bot2.js"></script>
+	<script type="text/Javascript" src="js/tutorial.js"></script>
+	<script type="text/javascript" src="js/prolog_file_loader.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="tutorial_alt.css" />
+	<title>Arimaa - Learn by playing</title>
+	<script src="/pengine/pengines.js"></script>
+	  
+</head>
+
+<body onload="onload()">
+	
+<!--[if IE]>
+		<div>
+		 <h1>This page does not support Internet Explorer. Try instead <a href="http://www.firefox.com/">Firefox</a>, <a href="http://www.google.com/chrome?hl=en">Chrome</a>, <a href="http://www.apple.com/safari/">Safari</a>, or <a href="http://www.opera.com/">Opera</a>.</h1>
+		</div>
+	<![endif]-->  
+
+	<div class="localization gold">Gold</div>
+	<div class="localization silver">Silver</div>
+
+  <audio id="sound_step"> 
+    <source src="sounds/step.ogg">
+    <!-- <source src="sounds/step.ogg" type="audio/ogg"> -->
+  </audio>
+
+  <img id="gelephant_ghost" src="pics/gelephant_ghost.png" class="ghost" />
+  <img id="gcamel_ghost" src="pics/gcamel_ghost.png" class="ghost" />
+  <img id="ghorse_ghost" src="pics/ghorse_ghost.png" class="ghost" />
+  <img id="gdog_ghost" src="pics/gdog_ghost.png" class="ghost" />
+  <img id="gcat_ghost" src="pics/gcat_ghost.png" class="ghost" />
+  <img id="grabbit_ghost" src="pics/grabbit_ghost.png" class="ghost" />
+  
+  <div class="wrapper">
+  
+		<div class="wrapper">
+
+				<div class="boardwrapper"> <!-- this is needed so that we get mouseleave event for inner board but visually the board has margins (in css: padding) -->
+					<div class="gameover_info">
+						<img src="pics/victorycake.png" class="game_win" />
+						<img src="pics/lostbunny.png" class="game_lost" />
+
+						<div>
+						  <h1>Thanks for playing!</h1>
+						  <p>Have fun playing in <a href="http://www.arimaa.com/arimaa">Arimaa.com</a></p>
+						</div>
+					</div>
+					<div class="board"></div>
+				</div>
+			
+			<div class="rules">
+			  <div class="rules_close">&nbsp;</div>
+				<div>Shortened <strong>rules</strong> of <a href="http://www.arimaa.com/arimaa">Arimaa</a></div>
+
+				<div>
+					<em>Win</em> by moving <img src="pics/grabbit.png" class="rule_piece" alt="Rabbit"/> to the opponent's <span class="rules_homerow">home row</span>.
+				</div> 
+
+				<div>Move piece(s) up to <strong>4</strong> <em>steps</em> in one turn.</div>
+
+				<div>
+				  <table>
+				    <tr>
+				      <td width="100">A piece can't move if it's adjacent to a stronger piece of opponent's</td>
+				      <td><strong>unless</strong> <span style="font-style: italic">any</span> friendly piece is adjacent to it.<td>
+				    </tr>
+				    <tr>
+				      <td><span class="rules_square"><img src="pics/gcat.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/selephant.png" class="rule_piece"/></span></td>
+				      <td><span class="rules_square"><img src="pics/gdog.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/gcat.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/selephant.png" class="rule_piece"/></span></td>
+				    </tr>
+				  </table>
+				</div>
+
+				<div>
+			  <p><em>Push</em> and <em>pull</em> opponent's weaker pieces with a stronger piece of yours. Two steps is required.</p>
+			  </div>
+
+			  <div class="toggleable">
+					<div class="title"><span class="titlename">Pushing</span> <span class="toggle_show">[show]</div>
+					
+					<div class="toggle_content">
+						<div><span class="rules_square"><img src="pics/gcamel.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/shorse.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span> Push first.</div>
+						<div><span class="rules_square"><img src="pics/gcamel.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/shorse.png" class="rule_piece"/></span> Then move.</div>
+						<div><span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/gcamel.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/shorse.png" class="rule_piece"/></span></div>
+					</div>
+				</div>
+
+				<div class="toggleable">
+					<div class="title"><span class="titlename">Pulling</span> <span class="toggle_show">[show]</span></div>
+					
+					<div class="toggle_content">
+						<div><span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/gcamel.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/shorse.png" class="rule_piece"/></span> Move backwards</div>
+						<div><span class="rules_square"><img src="pics/gcamel.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/shorse.png" class="rule_piece"/></span> Then pull</div>
+						<div><span class="rules_square"><img src="pics/gcamel.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/shorse.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span></div>					
+					</div>
+				</div>
+
+				<div>
+				  <p>A piece in a dark square, <em>trap</em>, is removed from the game if it has no friendly adjacent piece.</p>
+					<span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span><span class="rules_trap"><img src="pics/gcamel.png" class="rule_piece"/></span><span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span>
+					<span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span><span class="rules_trap"><a href="http://www.metacafe.com/watch/2460114/monty_python_dead_parrot_sketch/">trap</a></span><span class="rules_square"><img src="pics/empty.png" class="rule_piece"/></span>
+				</div>
+			
+				<div class="rules_strength">
+					<p><em>Strength order</em> <small>(strongest first)</small></p>
+					<img src="pics/gelephant.png" class="rule_piece" alt="Elephant" />
+					<img src="pics/gcamel.png" class="rule_piece" alt ="Camel"/>
+					<img src="pics/ghorse.png" class="rule_piece" alt="Horse"/>
+					<img src="pics/gdog.png" class="rule_piece" alt="Dog"/>
+					<img src="pics/gcat.png" class="rule_piece" alt="Cat"/>
+					<img src="pics/grabbit.png" class="rule_piece" alt="Rabbit"/>
+				</div>
+			</div>
+
+			<div class="menuwrapper">
+			  <div>
+			    <button class="control" id="show_rules">Show rules</button>
+			  </div>
+				<div class="turninfo">
+					<span class="turn"></span>
+					<div><em>to move</em></div>
+				</div>
+
+				<div class="stepinfo">
+					<div><em>Steps left</em></div>
+					<span class="steps_left"></span>
+				</div>
+
+			</div>
+
+			<div class="controls">
+				<span class="sound_selection">
+					<label for="sound_on">Sounds</label>
+					<input id="sound_on" type="checkbox" />
+				</span>
+				<button class="pass control">Pass</button>
+
+			</div>
+
+				<div class="captured_info">
+					<p>Captured pieces</p>
+					<div class="captured_pieces"></div>
+				</div>
+			
+			<div class="clear"></div>
+			
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+
+  <div class="clear"></div>
+  
+  <div id="page-wrapper">
+    <br/>
+  <pre id="fileDisplayArea"></pre>	
+  </div>
+  <div   style="border: 1px solid black; height: 100%; width: 98%; max-height: 200px;  overflow-y: scroll; overflow-x: hidden; " id="stdout" tabindex="0">Trace:</div>
+    
+</body>
+</html>
+

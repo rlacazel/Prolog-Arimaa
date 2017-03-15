@@ -1,0 +1,274 @@
+.dragged_original img {
+	display: none;
+}
+
+.selection_option {
+	background-color: #4682B4 !important;
+	border: 1px solid #4169E1 !important;
+	cursor: pointer;
+}
+
+.square.selection_option:hover {
+	background-color: #3366ff !important;
+	border: 1px solid blue !important;
+}
+
+.turninfo {
+	float: left;
+	margin: 2px;
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+
+.rule_piece {
+	width: 30px;
+}
+
+#show_rules {
+	width: 500px;
+	display: none;
+}
+
+.rules > div {
+	margin-top: 10px;
+}
+
+.rules_square {
+	background-color: #ccc;
+	color: white;
+	border: 1px solid black;
+	width: 35px;
+}
+
+.rules_trap {
+	width: 35px; height: 10px;
+	background-color: #aaf;
+	color: white;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.rules_strength {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.rules {
+	float: left;
+	margin: 5px;
+	padding: 10px;
+	background-color: white;
+	color: black;
+	width: 218px;
+}
+
+.debug {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1000px;
+	height: 200;
+	z-index: 500;
+	display: none;
+	background-color: white;
+}
+
+.shown {
+	display: block;
+}
+
+.rules, .boardwrapper, .trap, .controls, .control, .marker, .sound_selection, .shadow_selection {
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	box-shadow: 1px 1px 5px black;
+	-webkit-box-shadow: 1px 1px 5px black;
+}
+
+.control:hover {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background-color: #bbb;
+}
+
+.shadowable, .boardwrapper {
+	box-shadow: 1px 1px 5px black;
+	-webkit-box-shadow: 1px 1px 5px black;
+	
+	/*
+	mozilla seems to slow down with shadows
+		-moz-box-shadow: 1px 1px 5px black; 
+	*/
+}
+	
+
+.sound_selection, .shadow_selection {
+	float: left;
+	padding: 5px; margin: 5px; 
+	background-color: #99ff66; color: black; 
+}
+
+.square {
+	border-radius: 2px;
+	-moz-border-radius: 2px; border-radius: 2px;
+}
+
+
+.treemove_hover {
+	background-color: #FF6633 !important;
+	color: white !important;
+}
+
+.jstree a {
+	padding: 3px !important;
+}
+
+.jstree-clicked /*, .treemove_hover, .treeicon_hover   slows down a bit*/ {
+	/* font-size: 1.5em; */
+}
+
+.treeicon_hover {
+	background-color: #99ff66 !important;
+}
+
+.marker_A, .hovermarker_A {
+	background-color: #FFFF99 !important;
+}
+
+.marker_B, .hovermarker_B {
+	background-color: #99CCFF !important;
+}
+
+.marker_C, .hovermarker_C {
+	background-color: #F8F8F8 !important;
+}
+
+.hovermarker_A, .hovermarkerB, .hovermarkerC {
+	cursor: pointer;
+}
+
+.markers { width: 470px; height: 80px;	background-color: #555; margin: 5px; float: left; }
+
+.markers p {
+	color: white;
+	margin: 2px;	
+}
+
+.marker:hover {
+	border: 1px solid pink;
+	background-color: pink;
+	cursor: pointer;
+}
+
+.marker_pressed {
+	border: 3px outset white !important;
+}
+
+.marker {
+	font-size: 1.2em;
+	width: 40px;
+	height: 30px;
+	float: left;
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	margin: 5px;
+	text-align: center;
+	padding: 3px;
+}
+
+.scrollabletree {
+	float: left;
+  overflow:auto;
+  height: 587px;
+	width: 450px;
+	margin-left: 2px;
+	border: 5px solid white;
+}
+
+.gametree {
+	font-family: Courier New;
+	font-size: 1em;
+}
+
+body { padding: 0; margin: 0; font-family: Verdana; font-size: 0.8em; width: 1200px; background-color: #333; margin: 0; }
+
+p { color: white; }
+
+h1 { color: gray; font-family: Verdana;  margin: 15px; font-size: 1.0em; }
+
+.selected {	border: 1px red solid !important; }
+
+.arrow { 	padding: 0px; margin: 0px; border: 0px; 	position: absolute; z-index: 2000; display: none; cursor: pointer; }
+
+.nodeinfobox { width: 210px; float: right; margin: 2px; margin-right: 25px; }
+.nodeinfobox p { font-size: 0.9em; margin: 10px 5px 5px 5px; }
+
+.turn { color: red; margin: 5px 5px; font-size: 1.5em; }
+.comments_for_node, .comments_for_move {
+	font-family: Verdana;
+	font-size: 1.2em;
+	width: 200px; height: 100px; 
+	background-color: #ddd; color: black; padding: 5px; 
+	margin: 5px; font-size: 0.8em; float: left; 
+}
+
+.comment { height: 50px; width: 420px; float: left; }
+.comment_box { float: left; margin: 2px;}
+.make_comment { }
+
+.arrowhover { display: none; }
+
+.arrow img { width: 35px;	margin: 0px; padding: 0px;	border: 0px; }
+
+.clear { clear: both; }
+
+.trap { background-color: #655 !important; border: 1px solid #aaa !important; }
+
+.wrapper { width: 1000px; border: 1px solid gray; float: left; background-color: #666;}
+
+.nodehandle:hover {	background-color: pink !important; }
+
+.selected_handle { background-color: white !important; }
+
+.selected_handle, .nodehandle:hover { cursor: pointer; border: 1px white solid;	color: black !important; }
+
+.nodehandle {	
+	float: left; margin: 0;	padding: 5px;	width: 35px; height: 20px; 
+  background-color: orange; color: white; font-size: 0.9em; text-align: center; border: 1px red solid; 
+}
+
+.boardwrapper {
+		margin-left: 20px;
+		margin-top: 5px;
+		padding: 13px;
+		float: left; width: 570px; height: 100%; background-color: #9999ff;
+		board: 1px solid blue;
+}
+
+.board {
+	float: left; width: 580px; margin: 0px; border: 1px white solid; background-color: #9999ff;
+}
+
+.shadow_piece { position: absolute; width: 50px; height: 50px; }
+.shadow_piece img { width: 100%; }
+
+.square { width: 65px; height: 65px; padding: 2px; border: 1px #ddd solid; background-color: #bbb; float: left; }
+
+.square img {	width: 100%; }
+
+.row {}
+
+#imported_game { width: 20px; height: 30px; float: left;	margin: 0;	padding: 0; }
+
+.controls {	width: 100px; height: 124px; background-color: #ccc; margin: 5px; color: black;	float: left; padding: 5px; border: 1px outset black; }
+
+.control img { margin: 0;	padding: 0; }
+
+.control { width: 60px;	border: 1px solid #aaa;	float: left;	margin: 5px;	background-color: #ddd; cursor: pointer; text-align: center; }
+.prev_step, .next_step { margin-top: 10px; width: 30px !important; height: 30px; padding: 0px;}
+
+.clear_markers_control, .show, .pass, .undo, .export, #import_game, .show_rules_again button { padding: 7px;}
+.clear_markers_control { width: 190px; }
+
+.feedback { margin-left: 20px; }

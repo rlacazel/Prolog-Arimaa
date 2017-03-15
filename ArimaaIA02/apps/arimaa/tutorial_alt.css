@@ -1,0 +1,344 @@
+
+.rules em {
+	background-color: #eeefff;
+	padding: 2px;
+}
+
+.rules {
+	line-height: 1.4em;
+}
+
+.ghost { display: none; }
+
+.board, .boardwrapper { background-color: #444; }
+.square { background-color: #ddd; border-color: #ccc !important; }
+.trap { background-color: #655; border-color: #666 }
+.wrapper {  background-color: #666; }
+body { background-color: #eee; } 
+
+.homerow { background-color: #ffffef !important; }
+.rules_homerow { background-color: #ffffef; padding: 2px; padding-top: 0px; text-decoration: underline; }
+.rules_homerow:hover { cursor: pointer; }
+.homerow.highlight { background-color: #eeefff !important; }
+.homerow.highlight img { display: none; }
+.homerow.highlight:after { content: "goal"; margin: 10px; padding: 5px; font-style: italic; font-size: 1.2em;}
+
+.toggleable { cursor: pointer; }
+.toggleable .titlename { font-style: italic; padding: 3px; text-decoration: underline; letter-spacing: 3px;  }
+.toggleable .title:hover {
+	background-color: #cca;
+}
+.toggle_show { font-size: 0.8em; }
+
+.toggle_content { display: none; }
+.rule_toggled .toggle_content {	display: block; }
+
+.captured {
+	font-size: 1.5em;
+}
+
+.captured_piece {
+	width: 30px;
+	margin: 2px;
+}
+
+.captured_info p {
+	color: white;
+	margin-top: 2px;
+	font-style: italic;
+}
+
+.captured_info {
+	background-color: #aaa;
+	margin-top: 10px;
+	margin-left: 10px;
+	min-height: 100px;
+	padding: 5px;
+	float: left;
+	width: 110px;
+}
+
+.menuwrapper {
+	padding: 5px;
+	margin: 5px;
+	width: 110px;
+	float: left;
+}
+
+.dragged_original {
+	border-color: white !important;
+}
+
+.dragged_original img {
+	display: none;
+}
+
+.selection_option {
+	
+	/*
+	background-color: #4682B4 !important;
+	border: 1px solid #4169E1 !important;
+	
+	*/
+	background-color: #dedecc !important;
+	
+	
+	cursor: pointer;	
+}
+
+.hovered_selection {
+	
+	/*
+	background-color: #3366ff !important;
+	border: 1px solid blue !important;
+	border: 1px solid #dde !important;
+	
+*/
+
+	cursor: pointer !important;
+}
+
+.square img:hover {
+	cursor: pointer !important;
+}
+
+.square.selection_option:hover {
+	/*background-color: #3366ff !important;
+	border: 1px solid blue !important;*/
+	cursor: pointer !important;
+}
+
+.rules_trap a {
+	color: #666; /* for the "hidden" link to monty python sketch */
+}
+
+.turninfo, .stepinfo {
+	float: left;
+	margin-top:10px;
+	margin-bottom: 10px;
+	background-color: gray;
+	padding: 5px;
+	width: 100px;
+}
+
+.turninfo .turn {
+	font-family: Monospace;
+	font-size: 2em;
+}
+
+.turninfo div {
+	margin: 5px;
+}
+
+.stepinfo .steps_left {
+	color: #ccd;
+	margin-left: 30px;
+	width: 100px;
+	font-size: 3.5em;
+}
+
+.rule_piece {
+	width: 30px;
+}
+
+.rules {
+	font-size: 1em !important;
+}
+
+.rules > div { margin-top: 5px; }
+.rules > p { margin: 5px;  }
+
+.rules_square {
+	background-color: #eee;
+	color: white;
+	border: 1px solid black;
+	width: 35px;
+}
+
+#show_rules {
+	display: none;
+	width: 100px;
+}
+
+.rules_close {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	margin: 5px;
+	width: 16px;
+	height: 16px;
+	background-image: url("pics/close.png");	
+}
+
+.rules_close img {
+}
+
+.rules_close:hover {
+	background-image: url("pics/close_hover.png");
+}
+
+.rules_close:hover {
+	cursor: pointer;
+}
+
+/* when rules column is closed */
+body.rules_closed { width: 720px; }
+.rules_closed .wrapper { width: 710px; }
+.rules_closed .rules  { display: none; }
+
+.rules_trap {
+	width: 35px; height: 10px;
+	background-color: #655;
+	color: white;
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+.rules_strength {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.rules {
+	position: relative;
+	float: left;
+	margin-right: 5px;
+	margin-left: 10px;
+	padding: 10px;
+	background-color: white;
+	color: black;
+	width: 223px;
+}
+
+.debug {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1000px;
+	height: 200;
+	z-index: 500;
+	display: none;
+	background-color: white;
+}
+
+.shown {
+	display: block;
+}
+
+.turninfo, .captured_info, .stepinfo {
+	border: 1px solid #aaa !important;
+}
+
+.rules, .boardwrapper, .trap, .controls, .control, .sound_selection, .shadow_selection, .turninfo, .captured_info, .stepinfo, .wrapper {
+	/*
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	box-shadow: 1px 1px 5px black;
+	-webkit-box-shadow: 1px 1px 5px black;
+	*/
+}
+
+.control:hover {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background-color: #bbb;
+}
+
+.shadowable, .boardwrapper {
+	/*
+	box-shadow: 1px 1px 5px black;
+	-webkit-box-shadow: 1px 1px 5px black;
+	*/
+	
+	/*
+	mozilla seems to slow down with shadows
+		-moz-box-shadow: 1px 1px 5px black; 
+	*/
+}	
+
+.sound_selection, .shadow_selection {
+	float: left;
+	padding: 5px; margin: 5px; 
+	background-color: #99ff66; color: black; 
+}
+
+.square {
+	/*
+	border-radius: 2px;
+	-moz-border-radius: 2px; border-radius: 2px;
+	*/
+}
+
+.game_lost {
+	cursor: pointer;
+}
+
+.gameover_info {
+	display: none;
+}
+
+.gameover_info p {
+	margin: 15px;
+}
+
+.gameover_info div {
+	background-color: white;
+	padding: 5px;
+	margin: 0px;
+	font-size: 1em;
+	border: 5px solid #556;
+}
+
+.gameover_info img {
+	margin: 0px;
+	display: none; /* will be changed when game is over */
+}
+	
+.gameover_info {
+	position: absolute;
+	left: 70px;
+	float: left;
+	color: black;
+}
+
+body { padding: 0; margin: 0; font-family: Verdana; font-size: 0.8em; width: 990px; margin: 0; }
+
+p { color: black; }
+
+h1 { color: black; font-family: Verdana;  margin: 15px; font-size: 1.0em; }
+
+.selected {	border: 1px red solid !important; }
+
+.turn { color: red; margin: 5px 5px; font-size: 1.5em; }
+.clear { clear: both; }
+
+.trap { border: 1px solid #aaa !important; }
+
+.wrapper { width: 970px; border: 1px solid gray; float: left;}
+
+.boardwrapper {
+		margin-left: 2px;
+		margin-top: 5px;
+		padding: 13px;
+		float: left; width: 545px; height: 100%;
+}
+
+.board {
+	float: left; width: 550px; margin: 0px;
+}
+
+.shadow_piece { position: absolute; width: 50px; height: 50px; }
+.shadow_piece img { width: 100%; }
+
+.square { width: 62px; height: 62px; padding: 2px; border: 1px #ddd solid; float: left; }
+
+.square img {	width: 100%; }
+
+.row {}
+
+.controls {	width: 100px; height: 134px; background-color: #ccc; margin: 10px; color: black;	float: left; padding: 5px; border: 1px outset black; }
+.control img { margin: 0;	padding: 0; }
+.control { width: 80px;	border: 1px solid #aaa;	float: left;	margin: 5px;	background-color: #ddd; cursor: pointer; text-align: center; padding: 5px; }
+
+.localization { display: none; }

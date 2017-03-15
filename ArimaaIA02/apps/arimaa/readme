@@ -1,0 +1,17 @@
+board: array of 8 arrays of 8 pieces or nothing
+
+piece:
+    side:"gold" or "silver"
+    strength:4
+    type:"horse"
+
+game state:
+    turn: whose turn ("gold" or "silver")
+    array of captured piece: piece
+    remaining steps:
+
+move = get_move(board, state);
+
+move: 
+    steps: array of 4 move
+    move: from (row, col), piece, to (row, col)
