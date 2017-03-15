@@ -14,5 +14,4 @@
 
 :- if(exists_source(apps(arimaa/app))).
 :- use_module(apps(arimaa/app)).
-:- use_module(apps(arimaa/app2)).
 :- endif.
