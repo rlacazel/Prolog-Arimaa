@@ -27,10 +27,9 @@ The ONLY file you have to touch to code your IA is ArimaaIA02\apps\arimaa\arimaa
 Your new IA will be loaded (silver player)
 
 ## Problem you may encounter with Unix
-# library uuid can't be loeaded:
+### library uuid can't be loeaded:
 1. Install the library [OSSP UUID](http://www.ossp.org/pkg/lib/uuid/)
-2. Recompile prolog
-	Under Arch Linux:
+2. Recompile prolog (example under Arch Linux):
 	- yaourt -Sy uuid
 	- yaourt -D swi-prolog-devel (yes to remove prolog if conflict)
 
