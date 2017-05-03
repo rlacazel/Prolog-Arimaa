@@ -699,10 +699,6 @@ var ARIMAA_MAIN = ARIMAA_MAIN || function() {
             gamestate_to_prolog(viewer.gamestate());
             board_to_prolog(viewer.board());
 			var query = "get_moves(Moves," + gamestate_to_prolog(viewer.gamestate()) + "," + board_to_prolog(viewer.board()) + ").";
-			if (turn === human_side)
-			{
-				query = "get_moves2(Moves," + gamestate_to_prolog(viewer.gamestate()) + "," + board_to_prolog(viewer.board()) + ").";
-			}
             print_debug("<br />YOUR BOT << " + query);
             execute(query)
         }

@@ -56,7 +56,7 @@ http:location(apps, root(apps), []).
 %    Start the web-server on Port.
 
 server(Port) :-
-    check_passwd(passwd),
+%    check_passwd(passwd),
     http_server(http_dispatch,
 		[ port(Port),
 		  workers(16)
