@@ -713,6 +713,11 @@ var ARIMAA_MAIN = ARIMAA_MAIN || function() {
             GENERIC.for_each(move.steps, function(step) {
                 make_step_for_piece(step.from, step.to);
             });
+			
+			if (move.steps.length < 4)
+			{
+				pass_if_legal();
+			}
 
             current_show_step_delay = show_step_delay_bot;
             show_move_slowly(current_nodehandle.id, 0);
