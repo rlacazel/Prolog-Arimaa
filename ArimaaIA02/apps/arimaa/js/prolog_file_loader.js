@@ -25,18 +25,25 @@ function onload()
 function failed()
 {
 	var solution = JSON.stringify(this.data);
-	alert("Invalid query: " + solution);
+	alert("Invalid prolog query: " + solution);
 }
 
 function execute(query)
 {
-	pengine = new Pengine({
-		  application: 'arimaa',
-		  ask: query,
-		  onsuccess: bot_response,
-		  onfailure: failed,
-		  onerror:   failed
-	  });
+	if (pengine == null)
+	{
+		pengine = new Pengine({
+			  application: 'arimaa',
+			  ask: query,
+			  onsuccess: bot_response,
+			  onfailure: failed,
+			  onerror:   failed
+		  });
+	}
+	else
+	{
+		pengine.ask(query);
+	}
 }
 
 function predicate_flush_stdout()
@@ -48,11 +55,13 @@ function predicate_flush_stdout()
 
 function bot_response()
 {
+	pengine.destroy();
+	pengine = null;
 	for (var key in this.data) 
 	{
 		if (this.data[key].hasOwnProperty("Moves"))
 		{		
-         output_console.scrollTop = 10;
+			output_console.scrollTop = 10;
 			arimaa.bot_move_get_answer_from_prolog(this.data[key]);
 		}
 	}
