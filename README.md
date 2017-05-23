@@ -26,7 +26,8 @@ The ONLY file you have to touch to code your IA is ArimaaIA02\apps\arimaa\arimaa
 3. Refresh your browser page or click [http://localhost:3030](http://localhost:3030)
 Your new IA will be loaded (silver player)
 
-### Exemple of asserta and retract
+#### Exemple of asserta and retract
+```prolog
 % declare the dynamic fact
 :- dynamic moves/1.
 
@@ -35,6 +36,7 @@ add_move(NewMove) :- moves(M), retract(moves(M)), asserta(moves([NewMove|M])).
 
 % init moves with an empty list, add a new move to this list, return the new moves with the added move
 test(M) :- asserta(moves([])), add_move([[1,0],[2,0]]), moves(M).
+```
 
 ## Problem you may encounter with Unix
 ### library uuid can't be loeaded:
