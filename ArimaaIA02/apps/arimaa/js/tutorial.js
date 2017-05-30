@@ -472,7 +472,11 @@ var ARIMAA_MAIN = ARIMAA_MAIN || function() {
 			commit_move_to_gametree();
 			viewer.gametree_goto(current_nodehandle.id);
 			show_board();
-			bot_move_call_prolog(result.gamestate.turn);
+			// when passing, call prolog only if it was the human playing 
+			if (result.gamestate.turn.side != "silver")
+			{
+				bot_move_call_prolog(result.gamestate.turn);
+			}
 		}
 	}
 	
